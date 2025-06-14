@@ -1,5 +1,4 @@
 // === Cognitio+ Onboarding Logic with Theme and Analytics ===
-
 const TOTAL_STEPS = 6;
 let currentStep = Number(localStorage.getItem('onboardingStep')) || 1;
 
