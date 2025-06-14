@@ -1,95 +1,123 @@
-// === Onboarding logic with localStorage progress persistence ===
+// === Cognitio+ Onboarding Logic with Theme and Analytics ===
+
+const TOTAL_STEPS = 6;
 let currentStep = Number(localStorage.getItem('onboardingStep')) || 1;
-const totalSteps = 5;
+
 document.addEventListener('DOMContentLoaded', () => {
   showStep(currentStep);
-  // Focus main title for accessibility on load
   const mainTitle = document.getElementById('main-title');
   if (mainTitle) mainTitle.focus();
+
+   // Theme initialization
+  initTheme();
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
 });
 
+  // Theme initialization
+  initTheme();
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+});
+
+// Step Navigation
 function showStep(step) {
-  for (let i = 1; i <= totalSteps; i++) {
-    const stepElem = document.getElementById(`step-${i}`);
-    if (stepElem) stepElem.classList.remove('active');
+  for (let i = 1; i <= TOTAL_STEPS; i++) {
+    const elem = document.getElementById(`step-${i}`);
+    if (elem) elem.classList.remove('active');
   }
   const activeStep = document.getElementById(`step-${step}`);
   if (activeStep) activeStep.classList.add('active');
   updateDots(step);
   localStorage.setItem('onboardingStep', step);
+  currentStep = step;
+  trackEvent('onboarding_step_view', { step });
 }
+
 function nextStep() {
-  if (currentStep < totalSteps) {
-    currentStep++;
-    showStep(currentStep);
+  if (currentStep < TOTAL_STEPS) {
+    showStep(currentStep + 1);
   }
 }
+
 function prevStep() {
   if (currentStep > 1) {
-    currentStep--;
-    showStep(currentStep);
+    showStep(currentStep - 1);
   }
 }
+
 function updateDots(step) {
-  const allDots = document.querySelectorAll('.progress-dots');
-  allDots.forEach(dots => {
+  document.querySelectorAll('.progress-dots').forEach(dots => {
     dots.querySelectorAll('.dot').forEach((dot, i) => {
-      if (i === step - 1) dot.classList.add('active');
-      else dot.classList.remove('active');
+      dot.classList.toggle('active', i === step - 1);
     });
   });
 }
+
 function finishOnboarding() {
-  // Simulated dashboard redirect; clear onboarding progress
   localStorage.removeItem('onboardingStep');
+  trackEvent('onboarding_complete');
+  // You can change "dashboard.html" to the appropriate landing page if needed
   window.location.href = "dashboard.html";
 }
 
-// === Dark mode toggle implementation ===
-const themeToggle = document.getElementById('themeToggle');
-// Save theme preference
+// === Theme (Light/Dark) Toggle Logic ===
 function setTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem('theme', theme);
+  const themeToggle = document.getElementById('themeToggle');
   if (themeToggle) themeToggle.innerText = theme === "dark" ? "☀️" : "🌙";
 }
-// Init theme
-(function(){
+
+function initTheme() {
   const saved = localStorage.getItem('theme');
-  if(saved) setTheme(saved);
-  else if(window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
-})();
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme') === "dark" ? "light" : "dark";
-    setTheme(current);
-  });
+  if (saved) {
+    setTheme(saved);
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    setTheme('dark');
+  } else {
+    setTheme('light');
+  }
 }
 
-// === Service worker registration with error handling ===
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  setTheme(isDark ? 'light' : 'dark');
+}
+
+// === Service Worker Registration ===
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/service-worker.js')
       .catch(err => { console.error('Service Worker registration failed:', err); });
   });
 }
-// === Simple Analytics Tracking ===
-function trackEvent(eventName, eventData = {}) {
-  // You can replace this URL with your analytics endpoint
-  fetch('/analytics', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      event: eventName,
-      data: eventData,
-      timestamp: new Date().toISOString()
-    })
-  }).catch((err) => {
-    // Fails silently in production
+// === Analytics Tracking (Stub) ===
+function trackEvent(event, data = {}) {
+  // Replace this with your analytics endpoint if needed
+  try {
+    fetch('/analytics', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        event,
+        data,
+        timestamp: new Date().toISOString()
+      })
+    });
+  } catch (err) {
     if (window && window.console) console.warn('Analytics send failed:', err);
-  });
+  }
 }
 
+// === Export navigation functions to global for HTML inline onclicks ===
+window.nextStep = nextStep;
+window.prevStep = prevStep;
+window.finishOnboarding = finishOnboarding;
 // Track step navigation
 function showStep(step) {
   for (let i = 1; i <= totalSteps; i++) {
