@@ -1,13 +1,26 @@
 :root {
-  --primary: #cd00cd;
-  --accent: #cd00cd;;
-  --bg: #f7fafc;
-  --text: #1c1c1c;
-  --card: #fff;
-  --radius: 22px;
-  --dark-bg: #1e1e28;
-  --dark-card: #232337;
-  --dark-text: #fafafa;
+  --primary: #b257d9;
+  --accent: #b257d9;
+  /* ... rest unchanged ... */
+}
+
+/* ... rest of your CSS ... */
+
+.btn {
+  background: #d9d357;
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+  margin-left: 8px;
+  outline: 2px solid transparent;
+  min-width: 48px;
+  min-height: 48px;
+}
 }
 
 [data-theme="dark"] {
@@ -99,7 +112,9 @@ main {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+- background: linear-gradient(135deg, var(--primary), var(--accent));
++ background: linear-gradient(135deg, var(--primary), var(--primary));
+}
   display: flex;
   align-items: center;
   justify-content: center;
