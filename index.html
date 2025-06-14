@@ -208,109 +208,136 @@
   <main>
     <div class="onboarding-container" role="main" aria-label="Cognitio+ Onboarding Steps">
       <h1 id="main-title" tabindex="-1">Welcome to Cognitio+</h1>
-      <!-- Step 1: Welcome -->
-      <section class="onboarding-step active" id="step-1" aria-label="Welcome" aria-live="polite">
-        <div class="step-icon" aria-label="Seedling icon">🌱</div>
-        <h2>Welcome to Cognitio+</h2>
-        <p>
-          Empower your wellbeing with our suite of digital mental health tools.<br>
-          Start your journey to resilience, healthy habits, and emotional wellness.
-        </p>
-        <div class="progress-dots" aria-label="Progress indicator">
-          <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        </div>
-        <div class="onboarding-actions">
-          <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
-        </div>
-      </section>
-      <!-- Step 2: Resilience Navigator -->
-      <section class="onboarding-step" id="step-2" aria-label="Resilience Navigator">
-        <div class="step-icon" aria-label="Compass icon">🧭</div>
-        <h2>Resilience Navigator</h2>
-        <p>
-          Assess and strengthen your psychological resilience with
-          <a href="https://asilva777.github.io/Resilience-Navigator/" target="_blank" class="app-link" aria-label="Open Resilience Navigator in new tab">Resilience Navigator</a>.
-        </p>
-        <ul>
-          <li>Gamified, culturally-adaptive self-assessments</li>
-          <li>AI-powered feedback & action plans</li>
-          <li>Progress tracking and motivational tips</li>
-          <li>Multi-language support</li>
-        </ul>
-        <div class="progress-dots" aria-label="Progress indicator">
-          <div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        </div>
-        <div class="onboarding-actions">
-          <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
-          <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
-        </div>
-      </section>
-      <!-- Step 3: Habit Designer -->
-      <section class="onboarding-step" id="step-3" aria-label="Habit Designer">
-        <div class="step-icon" aria-label="Repeat icon">🔄</div>
-        <h2>Habit Designer</h2>
-        <p>
-          Build healthy routines and break unhelpful patterns with
-          <a href="https://asilva777.github.io/resilient-habit-designer/" target="_blank" class="app-link" aria-label="Open Habit Designer in new tab">Habit Designer</a>.
-        </p>
-        <ul>
-          <li>Personalized habit-building modules</li>
-          <li>Interactive lessons and progress badges</li>
-          <li>Goal reminders and streak tracking</li>
-          <li>Mobile and offline access</li>
-        </ul>
-        <div class="progress-dots" aria-label="Progress indicator">
-          <div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div>
-        </div>
-        <div class="onboarding-actions">
-          <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
-          <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
-        </div>
-      </section>
-      <!-- Step 4: Well-Be -->
-      <section class="onboarding-step" id="step-4" aria-label="Well-Be">
-        <div class="step-icon" aria-label="Flower icon">🌸</div>
-        <h2>Well-Be</h2>
-        <p>
-          Practice mindfulness, emotional regulation, and self-care with
-          <a href="https://asilva777.github.io/well-be/" target="_blank" class="app-link" aria-label="Open Well-Be in new tab">Well-Be</a>.
-        </p>
-        <ul>
-          <li>Daily wellness activities</li>
-          <li>Guided meditations and relaxation tips</li>
-          <li>Progress visualization</li>
-          <li>Accessible, inclusive design</li>
-        </ul>
-        <div class="progress-dots" aria-label="Progress indicator">
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div>
-        </div>
-        <div class="onboarding-actions">
-          <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
-          <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
-        </div>
-      </section>
-      <!-- Step 5: Journal -->
-      <section class="onboarding-step" id="step-5" aria-label="Emotional Wellness Journal">
-        <div class="step-icon" aria-label="Book icon">📖</div>
-        <h2>Emotional Wellness Journal</h2>
-        <p>
-          Track your mood and reflect on your journey with
-          <a href="https://asilva777.github.io/emotional-wellness-tracker/" target="_blank" class="app-link" aria-label="Open Journal in new tab">Journal</a>.
-        </p>
-        <ul>
-          <li>AI-powered mood tracking & analysis</li>
-          <li>Wellness tips based on your trends</li>
-          <li>Private, secure, and easy to use</li>
-          <li>Dashboard for mood and energy</li>
-        </ul>
-        <div class="progress-dots" aria-label="Progress indicator">
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div>
-        </div>
-        <div class="onboarding-actions">
-          <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
-          <button class="btn" onclick="finishOnboarding()" aria-label="Finish onboarding and get started">Get Started</button>
-        </div>
-      </section>
+     <!-- Step 1: Welcome -->
+<section class="onboarding-step active" id="step-1" aria-label="Welcome" aria-live="polite">
+  <div class="step-icon" aria-label="Seedling icon">🌱</div>
+  <h2>Welcome to Cognitio+</h2>
+  <p>
+    Empower your wellbeing with our suite of digital mental health tools.<br>
+    Start your journey to resilience, healthy habits, and emotional wellness.
+  </p>
+  <div class="progress-dots" aria-label="Progress indicator">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="onboarding-actions">
+    <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
+  </div>
+</section>
+
+<!-- Step 2: Resilience Navigator -->
+<section class="onboarding-step" id="step-2" aria-label="Resilience Navigator">
+  <div class="step-icon" aria-label="Compass icon">🧭</div>
+  <h2>Resilience Navigator</h2>
+  <p>
+    Assess your personal resilience level through engaging, gamified questionnaires tailored to your cultural background.
+    Discover your strengths and areas for growth in a fun and interactive way with
+    <a href="https://asilva777.github.io/Resilience-Navigator/" target="_blank" class="app-link" aria-label="Open Resilience Navigator in new tab">Resilience Navigator</a>.
+  </p>
+  <ul>
+    <li>Culturally-adaptive, gamified self-assessments</li>
+    <li>AI-powered personalized feedback</li>
+    <li>Action plans and progress tracking</li>
+  </ul>
+  <div class="progress-dots" aria-label="Progress indicator">
+    <div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="onboarding-actions">
+    <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
+    <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
+  </div>
+</section>
+
+<!-- Step 3: Resilient Habit Designer -->
+<section class="onboarding-step" id="step-3" aria-label="Resilient Habit Designer">
+  <div class="step-icon" aria-label="Habit icon">🔄</div>
+  <h2>Resilient Habit Designer</h2>
+  <p>
+    Create and maintain healthy habits with this interactive tool based on the formula:
+    <strong>B = Motivation + Ability + Prompt</strong>.
+    Perfect for managing stress, regulating emotions, improving sleep hygiene, and preventing substance use. 
+    Design habits that stick and transform your well-being with
+    <a href="https://asilva777.github.io/resilient-habit-designer/" target="_blank" class="app-link" aria-label="Open Resilient Habit Designer in new tab">Resilient Habit Designer</a>.
+  </p>
+  <ul>
+    <li>Personalized habit-building modules</li>
+    <li>Interactive lessons and progress badges</li>
+    <li>Goal reminders and streak tracking</li>
+  </ul>
+  <div class="progress-dots" aria-label="Progress indicator">
+    <div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="onboarding-actions">
+    <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
+    <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
+  </div>
+</section>
+
+<!-- Step 4: Journal -->
+<section class="onboarding-step" id="step-4" aria-label="Journal">
+  <div class="step-icon" aria-label="Book icon">📖</div>
+  <h2>Journal</h2>
+  <p>
+    Keep track of your moods and emotions with this digital journal powered by Natural Language Processing (NLP).
+    It detects emotional trends and offers personalized wellness tips, helping you understand and improve your mental health with
+    <a href="https://asilva777.github.io/emotional-wellness-tracker/" target="_blank" class="app-link" aria-label="Open Journal in new tab">Journal</a>.
+  </p>
+  <ul>
+    <li>AI-powered mood tracking & analysis</li>
+    <li>Personalized wellness advice</li>
+    <li>Private, secure, and easy to use</li>
+  </ul>
+  <div class="progress-dots" aria-label="Progress indicator">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="onboarding-actions">
+    <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
+    <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
+  </div>
+</section>
+
+<!-- Step 5: Well-Be -->
+<section class="onboarding-step" id="step-5" aria-label="Well-Be">
+  <div class="step-icon" aria-label="Flower icon">🌸</div>
+  <h2>Well-Be</h2>
+  <p>
+    Manage stress effectively with this comprehensive app. It provides tools and techniques to help you stay calm and focused, making stress management a breeze with
+    <a href="https://asilva777.github.io/well-be/" target="_blank" class="app-link" aria-label="Open Well-Be in new tab">Well-Be</a>.
+  </p>
+  <ul>
+    <li>Daily wellness activities</li>
+    <li>Guided meditations and relaxation tips</li>
+    <li>Progress visualization</li>
+    <li>Accessible, inclusive design</li>
+  </ul>
+  <div class="progress-dots" aria-label="Progress indicator">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+  </div>
+  <div class="onboarding-actions">
+    <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
+    <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
+  </div>
+</section>
+
+<!-- Step 6: AI Coaches -->
+<section class="onboarding-step" id="step-6" aria-label="AI Coaches">
+  <div class="step-icon" aria-label="Robot icon">🤖</div>
+  <h2>AI Coaches</h2>
+  <p>
+    Unlock your potential with AI Coaches, designed to guide you on your journey to personal growth and mental well-being. Whether you need support in achieving your goals or managing your mental health, these AI-powered coaches are here to help.
+  </p>
+  <ul>
+    <li><strong>ResilienceOne:</strong> Meet your AI chat companion on Facebook Messenger—always there to support you, offering advice, encouragement, and a listening ear whenever you need it.</li>
+    <li><strong>Cognitio+:</strong> Enhance your mental health and well-being. This AI coach provides personalized guidance and strategies to help you navigate life's challenges.</li>
+    <li><strong>Growth Tribe AI Coach:</strong> Embark on a journey of personal growth. This tool offers tailored advice and actionable steps to help you achieve your personal and professional goals.</li>
+  </ul>
+  <div class="progress-dots" aria-label="Progress indicator">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+  </div>
+  <div class="onboarding-actions">
+    <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
+    <button class="btn" onclick="finishOnboarding()" aria-label="Finish onboarding and get started">Get Started</button>
+  </div>
+  </section>
       <div class="feedback-link">
         <a href="mailto:feedback@example.com" class="app-link" aria-label="Send feedback about onboarding">Send us feedback!</a>
       </div>
