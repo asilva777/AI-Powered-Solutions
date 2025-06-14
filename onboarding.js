@@ -73,6 +73,44 @@ if ('serviceWorker' in navigator) {
       .catch(err => { console.error('Service Worker registration failed:', err); });
   });
 }
+// === Simple Analytics Tracking ===
+function trackEvent(eventName, eventData = {}) {
+  // You can replace this URL with your analytics endpoint
+  fetch('/analytics', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      event: eventName,
+      data: eventData,
+      timestamp: new Date().toISOString()
+    })
+  }).catch((err) => {
+    // Fails silently in production
+    if (window && window.console) console.warn('Analytics send failed:', err);
+  });
+}
+
+// Track step navigation
+function showStep(step) {
+  for (let i = 1; i <= totalSteps; i++) {
+    const stepElem = document.getElementById(`step-${i}`);
+    if (stepElem) stepElem.classList.remove('active');
+  }
+  const activeStep = document.getElementById(`step-${step}`);
+  if (activeStep) activeStep.classList.add('active');
+  updateDots(step);
+  localStorage.setItem('onboardingStep', step);
+
+  // Analytics: step view
+  trackEvent('onboarding_step_view', { step });
+}
+
+// Track onboarding completion
+function finishOnboarding() {
+  localStorage.removeItem('onboardingStep');
+  trackEvent('onboarding_complete', {});
+  window.location.href = "dashboard.html";
+}
 
 // === Simulated analytics stub ===
 function trackEvent(event) {
