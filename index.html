@@ -4,17 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#4a90e2"/>
+  <meta name="description" content="Cognitio+ Digital Mental Health Onboarding: Start your journey to resilience, healthy habits, and emotional wellness with our digital tools.">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icons/icon-192x192.png" sizes="192x192">
+  <link rel="stylesheet" href="style.css">
   <title>Cognitio+ Digital Mental Health Onboarding</title>
   <style>
+    /* Move all CSS to style.css in actual implementation. Comments added for clarity. */
     :root {
       --primary: #4a90e2;
       --accent: #7ED957;
       --bg: #f7fafc;
-      --text: #222;
+      --text: #1c1c1c;
       --card: #fff;
       --radius: 22px;
+      --dark-bg: #1e1e28;
+      --dark-card: #232337;
+      --dark-text: #fafafa;
+    }
+    [data-theme="dark"] {
+      --bg: var(--dark-bg);
+      --card: var(--dark-card);
+      --text: var(--dark-text);
     }
     body {
       margin: 0;
@@ -26,6 +37,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      transition: background .3s, color .3s;
+    }
+    main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .onboarding-container {
       max-width: 410px;
@@ -38,6 +56,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      transition: background .3s;
     }
     .onboarding-step {
       display: none;
@@ -68,17 +87,19 @@
       color: #fff;
       font-size: 2.3rem;
       box-shadow: 0 2px 16px rgba(74,144,226,0.12);
+      will-change: transform, opacity;
     }
-    h2 {
+    h1, h2 {
       margin: 0 0 10px 0;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--primary);
       font-weight: 700;
     }
+    h2 { font-size: 1.2rem; }
     p {
       margin: 0 0 14px 0;
       font-size: 1.07rem;
-      color: #383838;
+      color: #2b2b2b;
     }
     ul {
       text-align: left;
@@ -99,13 +120,18 @@
       color: #fff;
       border: none;
       border-radius: 20px;
-      padding: 9px 26px;
+      padding: 12px 28px;
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background .2s;
+      transition: background .2s, color .2s;
       margin-left: 8px;
-      outline: none;
+      outline: 2px solid transparent;
+      min-width: 48px;
+      min-height: 48px;
+    }
+    .btn:focus-visible {
+      outline: 2px solid var(--accent);
     }
     .btn.secondary {
       background: #fff;
@@ -119,14 +145,16 @@
       justify-content: center;
     }
     .dot {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       background: #e6eaf0;
       border-radius: 50%;
       transition: background 0.2s;
+      border: 1px solid #b5c6dd;
     }
     .dot.active {
       background: var(--primary);
+      border-color: var(--accent);
     }
     a.app-link {
       color: var(--accent);
@@ -135,139 +163,168 @@
       font-size: 1.07rem;
       transition: color .2s;
     }
-    a.app-link:hover {
+    a.app-link:focus-visible, a.app-link:hover {
       color: var(--primary);
+      outline: 2px solid var(--accent);
+    }
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 20px 0 0;
+    }
+    .dark-toggle {
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-size: 1.8rem;
+      cursor: pointer;
+      margin-left: 8px;
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: 50%;
+      transition: background .2s;
+    }
+    .dark-toggle:focus-visible {
+      outline: 2px solid var(--accent);
+      background: #e6eaf0;
+    }
+    .feedback-link {
+      margin: 20px auto 0 auto;
+      text-align: center;
+      font-size: 1.1rem;
     }
     @media (max-width: 500px) {
       .onboarding-container { margin: 0; border-radius: 0;}
+      h1, h2 { font-size: 1.1rem; }
+      .btn { font-size: .97rem; min-width: 44px; min-height: 44px;}
     }
   </style>
 </head>
 <body>
-  <div class="onboarding-container">
-    <!-- Step 1: Welcome -->
-    <div class="onboarding-step active" id="step-1">
-      <div class="step-icon">🌱</div>
-      <h2>Welcome to Cognitio+</h2>
-      <p>
-        Empower your wellbeing with our suite of digital mental health tools.<br>
-        Start your journey to resilience, healthy habits, and emotional wellness.
-      </p>
-      <div class="progress-dots">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-      <div class="onboarding-actions">
-        <button class="btn" onclick="nextStep()">Next</button>
-      </div>
-    </div>
-    <!-- Step 2: Resilience Navigator -->
-    <div class="onboarding-step" id="step-2">
-      <div class="step-icon">🧭</div>
-      <h2>Resilience Navigator</h2>
-      <p>
-        Assess and strengthen your psychological resilience with <a href="https://asilva777.github.io/Resilience-Navigator/" target="_blank" class="app-link">Resilience Navigator</a>.
-      </p>
-      <ul>
-        <li>Gamified, culturally-adaptive self-assessments</li>
-        <li>AI-powered feedback & action plans</li>
-        <li>Progress tracking and motivational tips</li>
-        <li>Multi-language support</li>
-      </ul>
-      <div class="progress-dots">
-        <div class="dot"></div>
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-      <div class="onboarding-actions">
-        <button class="btn secondary" onclick="prevStep()">Back</button>
-        <button class="btn" onclick="nextStep()">Next</button>
-      </div>
-    </div>
-    <!-- Step 3: Habit Designer -->
-    <div class="onboarding-step" id="step-3">
-      <div class="step-icon">🔄</div>
-      <h2>Habit Designer</h2>
-      <p>
-        Build healthy routines and break unhelpful patterns with <a href="https://asilva777.github.io/resilient-habit-designer/" target="_blank" class="app-link">Habit Designer</a>.
-      </p>
-      <ul>
-        <li>Personalized habit-building modules</li>
-        <li>Interactive lessons and progress badges</li>
-        <li>Goal reminders and streak tracking</li>
-        <li>Mobile and offline access</li>
-      </ul>
-      <div class="progress-dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-      <div class="onboarding-actions">
-        <button class="btn secondary" onclick="prevStep()">Back</button>
-        <button class="btn" onclick="nextStep()">Next</button>
-      </div>
-    </div>
-    <!-- Step 4: Well-Be -->
-    <div class="onboarding-step" id="step-4">
-      <div class="step-icon">🌸</div>
-      <h2>Well-Be</h2>
-      <p>
-        Practice mindfulness, emotional regulation, and self-care with <a href="https://asilva777.github.io/well-be/" target="_blank" class="app-link">Well-Be</a>.
-      </p>
-      <ul>
-        <li>Daily wellness activities</li>
-        <li>Guided meditations and relaxation tips</li>
-        <li>Progress visualization</li>
-        <li>Accessible, inclusive design</li>
-      </ul>
-      <div class="progress-dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot active"></div>
-        <div class="dot"></div>
-      </div>
-      <div class="onboarding-actions">
-        <button class="btn secondary" onclick="prevStep()">Back</button>
-        <button class="btn" onclick="nextStep()">Next</button>
-      </div>
-    </div>
-    <!-- Step 5: Journal -->
-    <div class="onboarding-step" id="step-5">
-      <div class="step-icon">📖</div>
-      <h2>Emotional Wellness Journal</h2>
-      <p>
-        Track your mood and reflect on your journey with <a href="https://asilva777.github.io/emotional-wellness-tracker/" target="_blank" class="app-link">Journal</a>.
-      </p>
-      <ul>
-        <li>AI-powered mood tracking & analysis</li>
-        <li>Wellness tips based on your trends</li>
-        <li>Private, secure, and easy to use</li>
-        <li>Dashboard for mood and energy</li>
-      </ul>
-      <div class="progress-dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot active"></div>
-      </div>
-      <div class="onboarding-actions">
-        <button class="btn secondary" onclick="prevStep()">Back</button>
-        <button class="btn" onclick="finishOnboarding()">Get Started</button>
+  <nav>
+    <button class="dark-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode" tabindex="0">🌙</button>
+  </nav>
+  <main>
+    <div class="onboarding-container" role="main" aria-label="Cognitio+ Onboarding Steps">
+      <h1 id="main-title" tabindex="-1">Welcome to Cognitio+</h1>
+      <!-- Step 1: Welcome -->
+      <section class="onboarding-step active" id="step-1" aria-label="Welcome" aria-live="polite">
+        <div class="step-icon" aria-label="Seedling icon">🌱</div>
+        <h2>Welcome to Cognitio+</h2>
+        <p>
+          Empower your wellbeing with our suite of digital mental health tools.<br>
+          Start your journey to resilience, healthy habits, and emotional wellness.
+        </p>
+        <div class="progress-dots" aria-label="Progress indicator">
+          <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+        <div class="onboarding-actions">
+          <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
+        </div>
+      </section>
+      <!-- Step 2: Resilience Navigator -->
+      <section class="onboarding-step" id="step-2" aria-label="Resilience Navigator">
+        <div class="step-icon" aria-label="Compass icon">🧭</div>
+        <h2>Resilience Navigator</h2>
+        <p>
+          Assess and strengthen your psychological resilience with
+          <a href="https://asilva777.github.io/Resilience-Navigator/" target="_blank" class="app-link" aria-label="Open Resilience Navigator in new tab">Resilience Navigator</a>.
+        </p>
+        <ul>
+          <li>Gamified, culturally-adaptive self-assessments</li>
+          <li>AI-powered feedback & action plans</li>
+          <li>Progress tracking and motivational tips</li>
+          <li>Multi-language support</li>
+        </ul>
+        <div class="progress-dots" aria-label="Progress indicator">
+          <div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+        <div class="onboarding-actions">
+          <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
+          <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
+        </div>
+      </section>
+      <!-- Step 3: Habit Designer -->
+      <section class="onboarding-step" id="step-3" aria-label="Habit Designer">
+        <div class="step-icon" aria-label="Repeat icon">🔄</div>
+        <h2>Habit Designer</h2>
+        <p>
+          Build healthy routines and break unhelpful patterns with
+          <a href="https://asilva777.github.io/resilient-habit-designer/" target="_blank" class="app-link" aria-label="Open Habit Designer in new tab">Habit Designer</a>.
+        </p>
+        <ul>
+          <li>Personalized habit-building modules</li>
+          <li>Interactive lessons and progress badges</li>
+          <li>Goal reminders and streak tracking</li>
+          <li>Mobile and offline access</li>
+        </ul>
+        <div class="progress-dots" aria-label="Progress indicator">
+          <div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+        <div class="onboarding-actions">
+          <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
+          <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
+        </div>
+      </section>
+      <!-- Step 4: Well-Be -->
+      <section class="onboarding-step" id="step-4" aria-label="Well-Be">
+        <div class="step-icon" aria-label="Flower icon">🌸</div>
+        <h2>Well-Be</h2>
+        <p>
+          Practice mindfulness, emotional regulation, and self-care with
+          <a href="https://asilva777.github.io/well-be/" target="_blank" class="app-link" aria-label="Open Well-Be in new tab">Well-Be</a>.
+        </p>
+        <ul>
+          <li>Daily wellness activities</li>
+          <li>Guided meditations and relaxation tips</li>
+          <li>Progress visualization</li>
+          <li>Accessible, inclusive design</li>
+        </ul>
+        <div class="progress-dots" aria-label="Progress indicator">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+        </div>
+        <div class="onboarding-actions">
+          <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
+          <button class="btn" onclick="nextStep()" aria-label="Next step">Next</button>
+        </div>
+      </section>
+      <!-- Step 5: Journal -->
+      <section class="onboarding-step" id="step-5" aria-label="Emotional Wellness Journal">
+        <div class="step-icon" aria-label="Book icon">📖</div>
+        <h2>Emotional Wellness Journal</h2>
+        <p>
+          Track your mood and reflect on your journey with
+          <a href="https://asilva777.github.io/emotional-wellness-tracker/" target="_blank" class="app-link" aria-label="Open Journal in new tab">Journal</a>.
+        </p>
+        <ul>
+          <li>AI-powered mood tracking & analysis</li>
+          <li>Wellness tips based on your trends</li>
+          <li>Private, secure, and easy to use</li>
+          <li>Dashboard for mood and energy</li>
+        </ul>
+        <div class="progress-dots" aria-label="Progress indicator">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+        </div>
+        <div class="onboarding-actions">
+          <button class="btn secondary" onclick="prevStep()" aria-label="Back">Back</button>
+          <button class="btn" onclick="finishOnboarding()" aria-label="Finish onboarding and get started">Get Started</button>
+        </div>
+      </section>
+      <div class="feedback-link">
+        <a href="mailto:feedback@example.com" class="app-link" aria-label="Send feedback about onboarding">Send us feedback!</a>
       </div>
     </div>
-  </div>
-  <script>
-    let currentStep = 1;
+  </main>
+  <script defer>
+    // === Onboarding logic with localStorage progress persistence ===
+    let currentStep = Number(localStorage.getItem('onboardingStep')) || 1;
     const totalSteps = 5;
+    document.addEventListener('DOMContentLoaded', () => {
+      showStep(currentStep);
+      // Focus main title for accessibility on load
+      document.getElementById('main-title').focus();
+    });
 
     function showStep(step) {
       for (let i = 1; i <= totalSteps; i++) {
@@ -275,6 +332,7 @@
       }
       document.getElementById(`step-${step}`).classList.add('active');
       updateDots(step);
+      localStorage.setItem('onboardingStep', step);
     }
     function nextStep() {
       if (currentStep < totalSteps) {
@@ -298,15 +356,48 @@
       });
     }
     function finishOnboarding() {
-      // Replace with navigation to the main app/dashboard
-      window.location.href = "index.html";
+      // Simulated dashboard redirect; clear onboarding progress
+      localStorage.removeItem('onboardingStep');
+      window.location.href = "dashboard.html";
     }
-    // Optional: Register service worker for PWA
+
+    // === Dark mode toggle implementation ===
+    const themeToggle = document.getElementById('themeToggle');
+    // Save theme preference
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      themeToggle.innerText = theme === "dark" ? "☀️" : "🌙";
+    }
+    // Init theme
+    (function(){
+      const saved = localStorage.getItem('theme');
+      if(saved) setTheme(saved);
+      else if(window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+    })();
+    themeToggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') === "dark" ? "light" : "dark";
+      setTheme(current);
+    });
+
+    // === Service worker registration with error handling ===
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js');
+        navigator.serviceWorker.register('/service-worker.js')
+          .catch(err => { console.error('Service Worker registration failed:', err); });
       });
     }
+
+    // === Simulated analytics stub ===
+    function trackEvent(event) {
+      // Example: send to an analytics service
+      // fetch('/analytics', { method: 'POST', body: JSON.stringify({ event }) });
+    }
+    // Example: track onboarding step changes
+    // (Uncomment to use)
+    // document.querySelectorAll('.btn').forEach(btn => {
+    //   btn.addEventListener('click', () => trackEvent(`step-${currentStep}`));
+    // });
   </script>
 </body>
 </html>
