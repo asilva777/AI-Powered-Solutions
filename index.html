@@ -24,4 +24,69 @@
     <nav role="navigation" aria-label="Main navigation">
       <ul>
         <li><a href="#home" tabindex="0" data-i18n="nav.home">Home</a></li>
-        <li><a href="#features" tabindex="0" data-i18n="nav.features">Features</
+        <li><a href="#features" tabindex="0" data-i18n="nav.features">Features</a></li>
+        <li><a href="#contact" tabindex="0" data-i18n="nav.contact">Contact</a></li>
+        <li>
+          <button id="darkModeToggle" aria-pressed="false" aria-label="Toggle dark mode" tabindex="0">
+            🌓 <span data-i18n="nav.dark_mode">Dark Mode</span>
+          </button>
+        </li>
+        <li>
+          <select id="langSelect" aria-label="Select language">
+            <option value="en" selected>English</option>
+            <option value="es">Español</option>
+            <!-- More languages as needed -->
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content" tabindex="-1">
+    <h1 id="main-title" data-i18n="main.title">Welcome to AI-Powered Solutions and Tools</h1>
+    <section id="auth-section">
+      <form id="authForm" autocomplete="off" novalidate>
+        <label for="username" data-i18n="auth.username">Username:</label>
+        <input type="text" id="username" name="username" required minlength="3" autocomplete="username">
+
+        <label for="password" data-i18n="auth.password">Password:</label>
+        <input type="password" id="password" name="password" required minlength="8" autocomplete="current-password" aria-describedby="pw-strength">
+        <meter max="4" id="pw-strength-meter"></meter>
+        <div id="pw-strength" aria-live="polite"></div>
+
+        <button type="submit" data-i18n="auth.login">Log In</button>
+      </form>
+    </section>
+    <section id="features">
+      <h2 data-i18n="features.title">Features</h2>
+      <ul>
+        <li data-i18n="features.accessibility">Accessible design</li>
+        <li data-i18n="features.security">Security best practices</li>
+        <li data-i18n="features.performance">Performance optimized</li>
+        <li data-i18n="features.pwa">Offline ready (PWA)</li>
+      </ul>
+      <img src="assets/ai-dashboard.png" alt="AI Dashboard Screenshot" loading="lazy" width="600">
+    </section>
+    <section id="feedback">
+      <h2 data-i18n="feedback.title">Feedback</h2>
+      <form id="feedbackForm" autocomplete="off" novalidate>
+        <label for="feedbackText" data-i18n="feedback.desc">Share your thoughts:</label>
+        <textarea id="feedbackText" name="feedbackText" required minlength="5"></textarea>
+        <button type="submit" data-i18n="feedback.submit">Submit</button>
+      </form>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>&copy; <span id="year"></span> AI-Powered Solutions. <span data-i18n="footer.rights">All rights reserved.</span></p>
+  </footer>
+  <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
