@@ -58,34 +58,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowRight') nextStep();
   });
 
-  // Theme Toggle Logic
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
-  const themeStatus = document.getElementById('themeStatus');
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const themeStatus = document.getElementById('themeStatus');
 
-  function setTheme(dark) {
-    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-    themeIcon.textContent = dark ? '☀️' : '🌙';
-    themeStatus.textContent = dark ? 'Dark mode: On' : 'Dark mode: Off';
-    localStorage.setItem('theme', dark ? 'dark' : 'light');
-  }
+function setTheme(dark) {
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  themeIcon.textContent = dark ? '\u2600\ufe0f' : '\ud83c\udf19'; // Sun/Moon
+  themeStatus.textContent = dark ? 'Dark mode: On' : 'Dark mode: Off';
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+}
 
-  // Load theme preference
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark' || (savedTheme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    setTheme(true);
-  } else {
-    setTheme(false);
-  }
+// Load theme preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark' || (savedTheme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  setTheme(true);
+} else {
+  setTheme(false);
+}
 
-  themeToggle.addEventListener('click', () => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    setTheme(!isDark);
-  });
-
-  // Accessibility: Focus first heading on step change
-  onboardingSteps.forEach(step => {
-    const h2 = step.querySelector('h2');
-    if (h2) h2.setAttribute('tabindex', '-1');
-  });
+themeToggle.addEventListener('click', () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  setTheme(!isDark);
 });
