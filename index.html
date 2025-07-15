@@ -2,291 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="AI-Powered Solutions and Tools: Empower your workflow with accessible, secure, and intelligent web applications.">
-  <meta name="theme-color" content="#1a1a1a">
-  <!-- Open Graph -->
-  <meta property="og:title" content="AI-Powered Solutions and Tools">
-  <meta property="og:description" content="Empower your workflow with accessible, secure, and intelligent web applications.">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="AI-powered Solutions and Tools">
+  <meta name="keywords" content="AI, artificial intelligence, tools, solutions, web app, productivity">
+  <meta name="author" content="asilva777">
+  <meta property="og:title" content="AI-Powered Solutions">
+  <meta property="og:description" content="AI-powered Solutions and Tools">
   <meta property="og:image" content="assets/og-image.png">
   <meta property="og:type" content="website">
-  <title>AI-Powered Solutions and Tools</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="favicon.ico">
+  <title>AI-Powered Solutions</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script defer src="onboarding.js"></script>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/favicon.ico">
+  <script defer src="onboading.js"></script>
 </head>
 <body>
-  <body>
-  <a href="#main-title" class="skip-link">Skip to main content</a>
-  <nav>
-    <button class="dark-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-      <span id="themeIcon" aria-hidden="true">🌙</span>
-      <span id="themeStatus" class="visually-hidden">Dark mode: Off</span>
-    </button>
-  </nav>
-  <main>
-    <div class="onboarding-container" role="main" aria-label="Cognitio+ Onboarding Steps">
-      <h1 id="main-title" tabindex="-1"></h1>
-
-      <!-- Step 1: Welcome -->
-      <section class="onboarding-step active" id="step-1" aria-label="Onboarding step 1: Welcome!">
-<div class="step-icon" aria-label="Cognitio+ icon">
-  <img src="https://appimize.app/assets/apps/user_1097/app_3046/draft/icon/app_logo.png?1752501886" alt="Cognitio+ icon" style="width:160px;height:160px;">
-</div>
-        <p>
-          Empower your wellbeing with our suite of AI-powered solutions and  tools.<br>
-          Start your journey to resilience, healthy habits, and emotional wellness.
-        </p>
-        <div class="progress-dots" aria-label="Progress indicator">
-          <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        </div>
-        <div class="onboarding-actions">
-          <button class="btn next-step" aria-label="Next step">Next</button>
-        </div>
-      </section>
-
-      <!-- Step 2: Resilience Navigator -->
-      <section class="onboarding-step" id="step-2" aria-label="Onboarding step 2: Resilience Navigator">
-       <div class="step-icon" aria-label="Resilience Navigator icon">
-  <img src="https://appimize.app/assets/apps/user_1097/images/20aa97ab307c_945_1097.png" alt="Resilience Navigator icon" style="width:160px;height:160px;">
-</div>
-        <h2>Resilience Navigator</h2>
-        <p>
-          Assess your personal resilience level through simple questions.
-          Discover your strengths and areas for growth in a fun and interactive way with
-          <a href="https://resilienceone.appimize.app/resilience-navigator/" target="_blank" class="app-link" aria-label="Open Resilience Navigator in new tab">Resilience Navigator</a>.
-        </p>
-        <ul>
-          <li>Simplified self-assessment</li>
-          <li>AI-powered personalized feedback</li>
-        </ul>
-        <div class="progress-dots" aria-label="Progress indicator">
-          <div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        </div>
-        <div class="onboarding-actions">
-          <button class="btn secondary prev-step" aria-label="Back">Back</button>
-          <button class="btn next-step" aria-label="Next step">Next</button>
-        </div>
-      </section>
-
-      <!-- Step 3: Resilient Habit Designer -->
-      <section class="onboarding-step" id="step-3" aria-label="Onboarding step 3: Resilient Habit Designer">
-        <div class="step-icon" aria-label="Resilient Habit Designer icon">
-  <img src="https://appimize.app/assets/apps/user_1097/images/2eb035e66921_749_1097.png" alt="Resilient Habit Designer icon" style="width:160px;height:160px;">
-</div>
-        <h2>Habit Designer</h2>
-        <p>
-          Create and maintain healthy habits with this interactive tool based on the formula:
-          <strong>B = Motivation + Ability + Prompt</strong>.
-          Perfect for managing stress, regulating emotions, improving sleep hygiene, and preventing substance use.
-          Design habits that stick and transform your well-being with
-          <a href="https://resilienceone.appimize.app/habit-designer/" target="_blank" class="app-link" aria-label="Open Resilient Habit Designer in new tab">Resilient Habit Designer</a>.
-        </p>
-        <ul>
-        </ul>
-        <div class="progress-dots" aria-label="Progress indicator">
-          <div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        </div>
-        <div class="onboarding-actions">
-          <button class="btn secondary prev-step" aria-label="Back">Back</button>
-          <button class="btn next-step" aria-label="Next step">Next</button>
-        </div>
-      </section>
-
-      <!-- Step 4: Journal -->
-      <section class="onboarding-step" id="step-4" aria-label="Onboarding step 4: Journal">
-        <div class="step-icon" aria-label="Emotion Tracker and Journal icon">
-  <img src="https://appimize.app/assets/apps/user_1097/images/1fbf3fc9faa2_81_1097.png" alt="Emotion Tracker and Journal icon" style="width:160px;height:160px;">
-</div>
-        <h2>Smart Emotion Tracker and Journal</h2>
-        <p>
-          Keep track of your moods and emotions with this digital journal.
-          It detects emotional trends and offers personalized wellness tips, helping you understand and improve your mental health with
-          <a href="https://resilienceone.appimize.app/journal" target="_blank" class="app-link" aria-label="Open Journal in new tab">Journal</a>.
-        </p>
-        <ul>
-          <li>AI-powered mood tracking &amp; analysis</li>
-          <li>Personalized wellness advice</li>
-          <li>Private, secure, and easy to use</li>
-        </ul>
-        <div class="progress-dots" aria-label="Progress indicator">
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div>
-        </div>
-        <div class="onboarding-actions">
-          <button class="btn secondary prev-step" aria-label="Back">Back</button>
-          <button class="btn next-step" aria-label="Next step">Next</button>
-        </div>
-      </section>
-
-      <!-- Step 5: Well-Be -->
-      <section class="onboarding-step" id="step-5" aria-label="Onboarding step 5: Well-Be">
-       <div class="step-icon" aria-label="Well-Be Stress Manager icon">
-  <img src="https://appimize.app/assets/apps/user_1097/images/b6efa383c968_220_1097.png" alt="Well-Be Stress Manager icon" style="width:160px;height:160px;">
-</div>
-        <h2>Well-Be</h2>
-        <p>
-          Manage stress effectively with this comprehensive app. It provides tools and techniques to help you stay calm and focused, making stress management a breeze with
-          <a href="https://resilienceone.appimize.app/well-be" target="_blank" class="app-link" aria-label="Open Well-Be in new tab">Well-Be</a>.
-        </p>
-        <ul>
-          <li>Daily wellness activities</li>
-          <li>Guided meditations and relaxation tips</li>
-          <li>Progress visualization</li>
-          <li>Accessible, inclusive design</li>
-        </ul>
-        <div class="progress-dots" aria-label="Progress indicator">
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div>
-        </div>
-        <div class="onboarding-actions">
-          <button class="btn secondary prev-step" aria-label="Back">Back</button>
-          <button class="btn next-step" aria-label="Next step">Next</button>
-        </div>
-      </section>
-
-  <div class="onboarding-step" id="login-signup-step">
-  <h2>Sign Up or Log In</h2>
-  <form id="auth-form" novalidate="">
-  <input type="email" id="email" name="email" placeholder="Email" required="" style="margin-bottom: 12px; width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
-  <span id="email-error" class="error-message"></span>
-
-  <input type="password" id="password" name="password" placeholder="Password" required="" minlength="6" style="margin-bottom: 12px; width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
-  <div id="password-strength" style="margin-bottom: 8px; font-size: 0.95em; color: green;">Strength: Strong</div>
-  <span id="password-error" class="error-message"></span>
-
-  <label style="display:flex; align-items:center; margin-bottom:6px;">
-    <input type="checkbox" id="remember" name="remember" style="margin-right:6px;"> Remember me
-  </label>
-
-  <a href="/forgot-password" style="display:block; margin-bottom:12px; font-size: 0.95em;">Forgot password?</a>
-
-  <button class="btn" type="submit">Continue</button>
-</form>
-</div>
-
-      <div class="feedback-link">
-        <form action="https://formspree.io/f/xkgbbbek" method="POST">
-          <label for="feedback" class="visually-hidden">Your feedback</label>
-          <input type="text" id="feedback" name="feedback" placeholder="Your feedback" required="">
-          <button type="submit" class="btn">Send</button>
-        </form>
-      </div>
-    </div>
-  </main>
-  <script src="onboarding.js" defer=""></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js');
-      });
-    }
-  </script>
-  <script>
-const form = document.getElementById('auth-form');
-const emailInput = document.getElementById('email');
-const emailError = document.getElementById('email-error');
-const passwordInput = document.getElementById('password');
-const passwordError = document.getElementById('password-error');
-const strengthDisplay = document.getElementById('password-strength');
-
-// Password strength logic
-passwordInput.addEventListener('input', function() {
-  const val = passwordInput.value;
-  let strength = 'Weak';
-  let color = 'red';
-  if (val.length > 7 && /[A-Z]/.test(val) && /\d/.test(val) && /[^A-Za-z0-9]/.test(val)) {
-    strength = 'Strong';
-    color = 'green';
-  } else if (val.length > 5 && (/[A-Z]/.test(val) || /\d/.test(val))) {
-    strength = 'Medium';
-    color = 'orange';
-  }
-  strengthDisplay.textContent = 'Strength: ' + strength;
-  strengthDisplay.style.color = color;
-});
-
-// Validation on submit
-form.addEventListener('submit', function(e) {
-  let valid = true;
-  emailError.textContent = '';
-  passwordError.textContent = '';
-  
-  // Email validation
-  if (!emailInput.value.match(/^[^@]+@[^@]+\.[^@]+$/)) {
-    emailError.textContent = 'Please enter a valid email address.';
-    valid = false;
-  }
-  // Password validation
-  if (passwordInput.value.length < 6) {
-    passwordError.textContent = 'Password must be at least 6 characters.';
-    valid = false;
-  }
-  if (!valid) e.preventDefault();
-  // You can add logic here for actual authentication if valid
-});
-</script>
-  <script>
-document.getElementById('auth-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  // Fetch values
-  const email = this.email.value;
-  const password = this.password.value;
-  // (Optional) Validate or send to backend here
-  alert('Form submitted!\nEmail: ' + email);
-  // Implement real logic as needed
-});
-</script>
-
-</body>
+  <!-- Header -->
+  <header>
+    <nav aria-label="Main">
+      <img src="https://cognitio-plus.appimize.app/assets/apps/user_1097/app_3046/draft/icon/app_logo.png?1752557398" alt="Cognitio+ Logo" class="logo" width="160" height="160" loading="lazy">
+      <h1 id="main-title" data-i18n="main-title">AI-Powered Solutions</h1>
+      <button id="dark-toggle" aria-label="Toggle dark mode" tabindex="0">
+        <span aria-hidden="true">🌙</span>
+      </button>
+    </nav>
   </header>
-  <main id="main-content" tabindex="-1">
-    <h1 id="main-title" data-i18n="main.title">Welcome to AI-Powered Solutions and Tools</h1>
-    <section id="auth-section">
-      <form id="authForm" autocomplete="off" novalidate>
-        <label for="username" data-i18n="auth.username">Username:</label>
-        <input type="text" id="username" name="username" required minlength="3" autocomplete="username">
 
-        <label for="password" data-i18n="auth.password">Password:</label>
-        <input type="password" id="password" name="password" required minlength="8" autocomplete="current-password" aria-describedby="pw-strength">
-        <meter max="4" id="pw-strength-meter"></meter>
-        <div id="pw-strength" aria-live="polite"></div>
+  <!-- Onboarding Steps -->
+  <main>
+    <section id="onboarding">
+      <article class="onboarding-step" aria-labelledby="step1-title">
+        <img src="" alt="Step 1: Choose an AI tool" width="160" height="160" loading="lazy">
+        <h2 id="step1-title" data-i18n="step1-title">Step 1: Choose a Tool</h2>
+        <p data-i18n="step1-desc">Empower your wellbeing with our suite of AI-powered solutions and tools. Start your journey to resilience, healthy habits, and emotional wellness..</p>
+      </article>
+      <article class="onboarding-step" aria-labelledby="step2-title">
+        <img src="assets/step2.png" alt="Step 2: Input your data" width="160" height="160" loading="lazy">
+        <h2 id="step2-title" data-i18n="step2-title">Step 2: Input Data</h2>
+        <p data-i18n="step2-desc">Provide the required information for the tool to process.</p>
+      </article>
+      <article class="onboarding-step" aria-labelledby="step3-title">
+        <img src="assets/step3.png" alt="Step 3: Get AI-powered results" width="160" height="160" loading="lazy">
+        <h2 id="step3-title" data-i18n="step3-title">Step 3: Get Results</h2>
+        <p data-i18n="step3-desc">Receive instant, AI-driven insights and solutions.</p>
+      </article>
+      <article class="onboarding-step" aria-labelledby="step4-title">
+        <img src="assets/step4.png" alt="Step 4: Review and take action" width="160" height="160" loading="lazy">
+        <h2 id="step4-title" data-i18n="step4-title">Step 4: Review &amp; Act</h2>
+        <p data-i18n="step4-desc">Review the results and take your next steps.</p>
+      </article>
+    </section>
 
-        <button type="submit" data-i18n="auth.login">Log In</button>
+    <!-- Feedback Form -->
+    <section id="feedback-section" aria-labelledby="feedback-title">
+      <h2 id="feedback-title" data-i18n="feedback-title">Your Feedback</h2>
+      <form id="feedback-form" aria-describedby="feedback-desc" autocomplete="off" novalidate>
+        <label for="feedback-input" data-i18n="feedback-label">Tell us what you think:</label>
+        <textarea id="feedback-input" name="feedback" required aria-required="true" aria-label="Feedback"></textarea>
+        <span id="feedback-error" class="error-message" role="alert" aria-live="assertive"></span>
+        <button type="submit" id="feedback-submit" data-i18n="feedback-submit">Send Feedback</button>
       </form>
-    </section>
-    <section id="features">
-      <h2 data-i18n="features.title">Features</h2>
-      <ul>
-        <li data-i18n="features.accessibility">Accessible design</li>
-        <li data-i18n="features.security">Security best practices</li>
-        <li data-i18n="features.performance">Performance optimized</li>
-        <li data-i18n="features.pwa">Offline ready (PWA)</li>
-      </ul>
-      <img src="assets/ai-dashboard.png" alt="AI Dashboard Screenshot" loading="lazy" width="600">
-    </section>
-    <section id="feedback">
-      <h2 data-i18n="feedback.title">Feedback</h2>
-      <form id="feedbackForm" autocomplete="off" novalidate>
-        <label for="feedbackText" data-i18n="feedback.desc">Share your thoughts:</label>
-        <textarea id="feedbackText" name="feedbackText" required minlength="5"></textarea>
-        <button type="submit" data-i18n="feedback.submit">Submit</button>
-      </form>
+      <p id="feedback-desc" data-i18n="feedback-desc">
+        We value your input to make our tools even better!
+      </p>
     </section>
   </main>
-  <footer role="contentinfo">
-    <p>&copy; <span id="year"></span> AI-Powered Solutions. <span data-i18n="footer.rights">All Rghts Reserved.</span></p>
+
+  <!-- Footer -->
+  <footer>
+    <p id="footer-text" data-i18n="footer-text">
+      &copy; 2025 AI-Powered Solutions. All rights reserved.
+    </p>
   </footer>
+
+  <!-- JavaScript (consolidated, with validation and service worker) -->
   <script>
-    // Register service worker
+    // Dark mode toggle with feedback
+    const darkToggle = document.getElementById('dark-toggle');
+    darkToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const dark = document.body.classList.contains('dark-mode');
+      darkToggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    });
+
+    // Feedback form validation and submission
+    const feedbackForm = document.getElementById('feedback-form');
+    const feedbackInput = document.getElementById('feedback-input');
+    const feedbackError = document.getElementById('feedback-error');
+
+    feedbackForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const value = feedbackInput.value.trim();
+      if (value.length < 5) {
+        feedbackError.textContent = 'Feedback must be at least 5 characters long.';
+        feedbackInput.focus();
+        return;
+      }
+      feedbackError.textContent = '';
+      // Simulate feedback submission (replace with actual logic if needed)
+      alert('Thank you for your feedback!');
+      feedbackInput.value = '';
+    });
+
+    // Accessibility: Clear error message on input
+    feedbackInput.addEventListener('input', function() {
+      feedbackError.textContent = '';
+    });
+
+    // Keyboard navigation for dark toggle
+    darkToggle.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        darkToggle.click();
+        e.preventDefault();
+      }
+    });
+
+    // Register Service Worker securely
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js');
+        navigator.serviceWorker.register('service-worker.js')
+          .then(registration => {
+            // Registration successful
+          })
+          .catch(error => {
+            // Registration failed
+            console.error('Service Worker registration failed:', error);
+          });
       });
     }
-    // Set year
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
